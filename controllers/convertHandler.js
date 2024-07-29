@@ -3,7 +3,6 @@ function ConvertHandler() {
   this.getNum = function (input) {
     // Use a regular expression to match the number part of the string (supports fractions and decimals)
     const result = input.match(/^(\d+(?:\.\d+)?(?:\/+\d+(?:\.\d+)?)*(?=[a-zA-Z]*$))/);
-    console.log(result);
     if (!result) return 1
     else {
       let strNum = ''
