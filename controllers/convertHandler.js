@@ -63,7 +63,7 @@ function ConvertHandler() {
       case 'L':
         return 'liters'
       case 'gal':
-        return 'galons'
+        return 'gallons'
       // kg - lbs
       case 'kg':
         return 'kilograms'

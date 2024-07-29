@@ -12,7 +12,6 @@ module.exports = function (app) {
       // console.log("input : " + req.query.input);
 
       const initNum = convertHandler.getNum(req.query.input)
-      console.log(req.query.input, initNum);
       const initUnit = convertHandler.getUnit(req.query.input)
       if ((initNum == 'err') && (initUnit == 'err')) {
         res.type('txt').send('invalid number and unit')
