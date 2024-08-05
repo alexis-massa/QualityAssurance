@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
-let mongooseHidden = require('mongoose-hidden')()
 
-const { Schema } = mongoose
-const bookSchema = new Schema({
+const bookSchema = new mongoose.Schema({
+  title: { type: String },
+  comments: [{ type: String }],
+  commentcount: { type: Number, default: 0 }
+}, { timestamps: true })
 
-}, { versionKey: false, timestamps: true })
 
-bookSchema.plugin(mongooseHidden)
-
-module.exports = mongoose.model('book', bookSchema)
+module.exports = mongoose.model('Book', bookSchema)
