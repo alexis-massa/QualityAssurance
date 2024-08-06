@@ -24,13 +24,13 @@ suite('Unit Tests', () => {
 
   suite('SudokuSolver.checkRowPlacement()', () => {
     test('Logic handles a valid row placement', () => {
-      // TODO
-      assert.fail('to implement')
+      let puzzleString = '1.5..2.84..63.12.7.2..5.....9..1....8.2.3674.3.7.2..9.47...8..1..16....926914.37'
+      assert.isFalse(solver.checkRowPlacement(puzzleString, 0, 0, 0))
     })
 
     test('Logic handles an invalid row placement', () => {
-      // TODO
-      assert.fail('to implement')
+      let puzzleString = '1.5..2.84..63.12.7.2..5.....9..1....8.2.3674.3.7.2..9.47...8..1..16....926914.37'
+      assert.isFalse(solver.checkRowPlacement(puzzleString, 0, 0, 0))
     })
   })
 
