@@ -24,11 +24,11 @@ class SudokuSolver {
     let grid = this.stringToGrid(puzzleString)
 
     // if number other than 0 or value present at coordinate
-    if (grid[row][col] !== 0 && grid[row][col] != value) return false
+    if (grid[row][col] === 0 || grid[row][col] === value) return false
 
     //if value exists in the given col skipping the coordinate provided
     for (let i = 0; i < 9; i++) {
-      if (i == col) continue
+      if (i == row) continue
       if (grid[i][col] == value) return false
     }
     return true
@@ -42,10 +42,15 @@ class SudokuSolver {
     // if number other than 0 or value present at coordinate
     if (grid[row][col] !== 0 && grid[row][col] != value) return false
 
+    let offsetRow = Math.floor(row / 3) * 3
+    let offsetCol = Math.floor(col / 3) * 3
+
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
-        if (i !== (row % 3) && j !== (col % 3))
-          if (grid[i][j] == value) return false
+        let posRow = i + offsetRow
+        let posCol = j + offsetCol
+        if (!(posRow === row && posCol === col))
+          if (grid[posRow][posCol] == value) return false
       }
     }
     return true
@@ -57,7 +62,7 @@ class SudokuSolver {
   }
 
   letterToNumber(letter) {
-    let number = letter.charCodeAt(0) - 65
+    let number = letter.charCodeAt(0) - 66
     if (number >= 0 && number < 10) return number
   }
 

@@ -13,7 +13,7 @@ module.exports = function (app) {
       let value = req.body.value
 
       // row, col as indexes
-      let row = solver.letterToNumber(rowO)
+      let row = solver.letterToNumber(rowO) - 1
       let col = parseInt(colO - 1)
 
       let result = { valid: true }
